@@ -1,0 +1,705 @@
+\documentclass[journal,comsoc]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{cite}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+%\graphicspath{{../pdf/}{../jpeg/}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\usepackage{amsmath}
+% \usepackage{mathrsfs}
+\interdisplaylinepenalty=2500
+\usepackage[cmintegrals]{newtxmath}
+%\usepackage{mtpro2}
+%\usepackage{mt11p}
+%\usepackage{mathtime}
+\usepackage{bm}
+\usepackage{array}
+%\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+\title{Resolução da primeira prova de Teoria Eletromagnética II}
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+\author{ Matheus Silva de Lima \\ Escola~Politécnica,~Universidade~Federal~do~Rio~de~Janeiro,
+Rio~de~Janeiro,~Brasil\\mathlima@poli.ufrj.br}
+\markboth{EEL535 - Teoria Eletromagnética II, Abril~2018}
+{}
+\maketitle
+
+\begin{abstract}
+	Este trabalho tem por objetivo apresentar a resolução da Primeira Prova de Teoria Eletromagnética II, aplicada no dia 6 de Abril de 2018, passo a passo, com o auxílio de ferramentas computacionais. O trabalho está organizado de forma a apresentarmos cada questão, e em seguida a resolvemos sucintamente.
+\end{abstract}
+
+\renewcommand\IEEEkeywordsname{Palavras-chave}
+\begin{IEEEkeywords}
+Teoria Eletromagnetica, TEII, Eletromagnetismo, Equações de Maxwell 
+\end{IEEEkeywords}
+
+\section{Introdução}
+\IEEEPARstart{T}{eoria} Eletromagnética II é a disciplina que da sequência aos assuntos abordados em Físicas III e IV na grade curricular da Engenharia Eletrônica e de Computação, com foco e aprofundamento naquilo que existe de mais importante na área de eletromagnetismo para a formação de um profissional de Engenheira Eletrônica.
+\par Dessa forma, uma vez que os assuntos abordados nas Físicas III e IV são de suma importância para a continuidade da disciplina, a primeira prova de Teoria Eletromagnética II de 2018.1 consistiu de um apunhado de conceitos já abordados e revisados durante as aulas da disciplina, como por exemplo,: \textit{Equações de Maxwell} e \textit{Leis de Newton}. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTAO1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Questão I}
+	Um tubo muito fino possui em seu interior uma pequena bola de plástico carregada (Q = 1$\mu$C) mostrado na figura abaixo. Uma segunda bola é inserida no sistema. Esta segunda bola é idêntica à primeira. Assumindo que não há atrito, que a parede do tubo não influencia nas cargas das bolas, que as bolas possuem massa de 1g, que a permissividade do tudo é igual do espaço livre e que as bolas não sairão do tubo, calcule:
+    \begin{enumerate}
+    	\item{\textit{A distância entre as bolas para a configuração da esquerda}}
+        \item{\textit{A distância entre bolas para a configuração da direita, para $\alpha$ = 30, 45, 60}}
+        \item{\textit{A distância entre as bolas para a configuração 1 e 2 com permissividade dentro do tubo igual a $\epsilon$ = $\frac{{\epsilon}_{0}}{3}$}}
+        \item{\textit{Qual o comportamento do sistema para as condições listadas no item b se a carga da segunda fosse Q/2, -Q, -Q/2 ?}}
+    \end{enumerate}
+---------------------------------------------------------------------------
+Item a)
+\par Para a resolução desta questão, é preciso relembrar alguns conceitos de Leis de Newton e de Força entre partículas. Para um sistema em equilíbrio, a aceleração resultante das forças aplicadas na partícula deverá ser zero. Matematicamente, podemos utilizar a terceira lei de Newton e escrever que:
+    \begin{equation}
+    	\sum_{i=0}^{N-1} \vec{F}_{i}= m\vec{a} = 0\ Newtons
+    \end{equation}
+
+\par Podemos então construir o diagrama de corpo livre da esfera superior e verificar que sobre ela, atuam apenas as forças elétrica e gravitacional. Dessa maneira, ambas as forças deverão se anular e podemos escrever que:
+    \begin{equation}
+    	\vec{F}_{g} + \vec{F}_{e} = 0\ Newtons
+    \end{equation}
+\par Utilizando o sistema de coordenadas $\hat{i}$ e $\hat{j}$, é simples verificar que não há contribuições de ambas as forças na direção do vetor unitário $\hat{i}$, e por fim, equacionamos as forças por:
+    \begin{equation}
+    	F_{g}(-\hat{i}) + F_{e}(\hat{i}) = 0 \rightarrow  F_{g} = F_{e} \Rightarrow mg = \frac{Q^2}{4\pi{\epsilon}_{0}d^2} 
+    \end{equation}
+\par de onde podemos chegar em
+
+    \begin{equation}
+    	d = \sqrt{\frac{Q^2}{4\pi{\epsilon}_{0}mg}}\ metros
+    \end{equation}
+
+\par O calculo da expressão resulta em: d = 0.957 metros ($g=9.8\ m/s^2$)
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex]
+	\centering
+	\draw[->,black](0,0) -- (0,1);
+    \fill[black] (0,1) circle (0mm) node[above right] {$F_{e}$};
+	\fill[black] (0,0) circle (1mm) node[above right] {$Q$};
+    \fill[black] (0,-1) circle (0mm) node[above right] {$P$};
+	\draw[->,black](0,0) -- (0,-1);
+    
+    \fill[black] (-2,-0.5) circle (0mm) node[above right] {$\hat{i}$};
+    \fill[black] (-1.5,-1) circle (0mm) node[above right] {$\hat{j}$};
+    \draw[->,black](-2,-1) -- (-2,0);
+    \draw[->,black](-2,-1) -- (-1,-1);
+\end{tikzpicture}
+\caption{Diagrama de Forças sobre a partícula superior}
+\end{figure}
+
+------------------------------------------------------------------------
+Item b)
+\par Para a Configuração da Direita, o equacionamento é parecido, com a diferença que agora haverá contribuição da força elétrica para ambas as direções $\hat{i}$ e $\hat{j}$. Podemos assumir que a contribuição em $\hat{i}$ é anulada pelas paredes do tubo, e assim iremos equacionar, novamente, apenas a direção dada pelo vetor unitário $\hat{j}$. Dessa forma, podemos escrever que:
+\begin{equation}
+ 	\vec{F}_{e} = \frac{Q^2}{4\pi{\epsilon}_{0}d^2}\hat{i} + \frac{Q^2}{4\pi{\epsilon}_{0}d^2}\hat{j} \rightarrow F_{e}\hat{j} = \frac{Q^2}{4\pi{\epsilon}_{0}d^2}sen(\alpha)\hat{j}\ Newtons
+\end{equation}
+
+\par Onde $\alpha$ é o ângulo formado entre o piso e a parede interna do tubo, como definido na questão. Assim, podemos concluir que:
+
+\begin{equation}
+    	d = \sqrt{\frac{Q^2sen(\alpha)}{4\pi{\epsilon}_{0}mg}}\ metros
+\end{equation}
+
+\par Para os ângulos de 30º, 45º e 60º a expressão resulta em, respectivamente:
+$0,676$, $0,804$ e $0,890\ metros$
+
+------------------------------------------------------------------------
+Item c)
+
+\par Podemos utilizar as expressões já calculadas nos itens a) e b), de forma que só é necessário substituir a permissividade dentro do tubo de ${\epsilon}_{0}$ para $\epsilon$ = $\frac{{\epsilon}_{0}}{3}$. Dessa forma:
+\par Para o tubo da esquerda:
+
+    \begin{equation}
+    	d = \sqrt{\frac{Q^2}{4\pi\frac{{\epsilon}_{0}}{3}mg}}\ metros
+    \end{equation}
+\par E para o tubo da direita:
+    \begin{equation}
+    	d = \sqrt{\frac{Q^2sen(\alpha)}{4\pi\frac{{\epsilon}_{0}}{3}mg}}\ metros
+    \end{equation}
+\par O calculo numérico das expressões resulta em uma distância de $0,164\ metros$ para o tubo da esquerda e $0,116$, $0,137$ e $0,152\ metros$ para o tubo da direita, respectivamente para os ângulos de 30º, 45º e 60º.
+
+------------------------------------------------------------------------
+Item d)
+\par A força elétrica entre duas partículas atua sempre na direção que as une, e seu sentido varia de acordo com as cargas envolvidas na interação. Caso ambas as cargas tenham mesmo "sinal", ou seja, ambas positivas ou negativas, a força é repulsiva e as partículas tendem a assumir uma distância infinita. Caso contrário, a força é atrativa e as cargas tendem a se aproximar até o limite físico de distância nula.
+\par Dito isso, podemos dizer que certamente, caso a segunda carga tenha carga -Q ou $\frac{-Q}{2}$, a distância final do sistema seria nula, uma vez que a direção da força elétrica corroboraria com a Força gravitacional e não a anularia (ou seja, as partículas iriam se aproximar até o limite de d=0).
+\par Já para o caso em que a segunda carga possui carga $\frac{Q}{2}$, podemos aproveitar o resultado obtido no item b), apenas adaptando-o para o novo valor de Carga. Dessa forma, chegamos no resultado:
+\begin{equation}
+    	d = \sqrt{\frac{\frac{Q^2}{2}sen(\alpha)}{4\pi{\epsilon}_{0}mg}}\ metros
+\end{equation}
+\par Para os ângulos de $\alpha$ = 30º, 45º e 60º, temos um resultado numérico de $0,478$, $0,568$ e $0,629\ metros$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTAO2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Questão 2}
+\par Duas cargas positivas $+Q$C e duas cargas negativas $-Q$C foram posicionadas nas bases da pirâmide e, uma quinta carga $-Q$C completando a estrutura ilustrada na figura abaixo. A base da pirâmide tem dimensões $d\times d m^2$ e é quadrada, além disso seus lados têm dimensão $d$ m. Sendo assim, calcule:
+    \begin{enumerate}
+    	\item{\textit{O vetor campo elétrico no pináculo da pirâmide}}
+        \item{\textit{O vetor campo elétrico no centro da base da pirâmide}}
+        \item{\textit{O vetor força elétrica nas cargas negativas da base da pirâmide}}
+        \item{\textit{Qual o potencial elétrico do sistema, tomando como referência uma das cargas positivas?}}
+        \item{\textit{Qual o potencial elétrico do sistema, tomando como referência uma das cargas positivas da base, se a quinta carga fosse substituída por uma carga de $\frac{+Q}{3}$?}}
+    \end{enumerate}
+    \hfill
+
+------------------------------------------------------------------------
+
+Item a)
+\par Podemos utilizar a linearidade do campo elétrico a nosso favor. Uma vez que temos um sistema de partículas e queremos calcular o campo elétrico em um ponto específico, podemos calcular os campos elétricos gerados por cada partícula separadamente sobre o pináculo (topo) da pirâmide, e por fim soma-los. Em um sistemas de coordenadas retangulares $\hat{i}$+$\hat{j}$+$\hat{k}$, isso se torna:  
+\begin{equation}
+    	\vec{E}(x,y,z) = \frac{1}{4\pi{\epsilon}_{0}} \sum_{i=0}^{N-1}
+        \frac
+        {{Q}_{i} ((x-{x}_{i})\hat{i}+(y-{y}_{i})\hat{j}+(z-{z}_{i})\hat{k})} 
+        {((x-{x}_{i})^2+(y-{y}_{i})^2+(z-{z}_{i})^2)^\frac{3}{2}}
+\end{equation}
+
+\par Os pontos de cada um das quatro cargas que irão contribuir para este campo elétrico em coordenadas retangulares (x,y,z) são:
+\begin{enumerate}
+	\item{\textit{Q1 = (d/2,d/2,0)}}
+    \item{\textit{Q2 = (d/2,-d/2,0)}}
+    \item{\textit{Q3 = (-d/2,d/2,0)}}
+    \item{\textit{Q4 = (-d/2,-d/2,0)}}
+\end{enumerate}
+\hfill
+\par É importante notar que o ponto residente sobre o pináculo da pirâmide não participará efetivamente do calculo do campo elétrico, pois não poderíamos definir um campo neste ponto considerando-o, uma vez que isso viola a definição de campo elétrico:
+
+\begin{equation}
+\vec{E} = \lim_{q\to 0} \frac{\vec{F}}{q}
+\end{equation}
+
+\par Já o pináculo da pirâmide pode ser encontrado utilizando relações geométricas. A figura deixa clara que o pináculo se encontra sobre $x=0$, $y=0$ no plano $xy$. Já o eixo $z$ encontramos através do teorema de Pitágoras: $z=d\frac{\sqrt[]{2}}{2}$
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex]
+	\centering
+	\draw[-,black](0,0) -- (0,1);
+	\draw[-,black](0,0) -- (0.5,0); 
+    \draw[-,black](0.5,0) -- (0,1);
+	\fill[black] (0,1) circle (1mm) node[above right] {$Topo$};
+    \fill[black] (0,-0.5) circle (0mm) node[above right] {$d/\sqrt{2}$};
+    \fill[black] (0.5,0.5) circle (0mm) node[above right] {$d$};
+    \fill[black] (-1,0) circle (0mm) node[above right] {$d/\sqrt{2}$};
+\end{tikzpicture}
+\caption{Diagrama Trigonométrico utilizado para o Cálculo da Altura}
+\end{figure}
+
+Dessa forma, nos basta resolver a Equação (10) para N = 4 pontos, no ponto de interesse (x,y,z) = Pináculo da pirâmide = (0,0,$d\frac{\sqrt[]{2}}{2}$):
+
+\begin{equation}
+    	\vec{E}(0,0,d\frac{\sqrt[]{2}}{2}) = \frac{1}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {Q(-{x}_{i}\hat{i}-{y}_{i}\hat{j}+(d\frac{\sqrt[]{2}}{2}-{z}_{i}))\hat{k}} 
+        {({x}_{i}^2+{y}_{i}^2+(d\frac{\sqrt[]{2}}{2}-{z}_{i})^2)^\frac{3}{2}}
+        +
+		...\space
+        \Big)
+\end{equation}
+
+\par Pela simetria do problema, é simples chegarmos a conclusão que essa expressão é igual a $\vec{0}$ para qualquer ponto $\vec{r}$ que resida sobre o eixo $z$ (ou seja, $(x,y)$ = $(0,0)$). Dessa forma:
+
+\begin{equation}
+    	\vec{E}(0,0,d\frac{\sqrt[]{2}}{2}) = \vec{0}\ N/C.
+\end{equation}
+
+------------------------------------------------------------------------
+Item b)
+
+\par Novamente, podemos utilizar a linearidade do Campo Elétrico e calcular novamente o Campo Elétrico no ponto de interesse $(x,y,z) = (0,0,0)$. Entretanto, desta vez deverá ser utilizado todos os 5 pontos no lugar de quatro, uma vez que a carga sobre o pináculo da pirâmide não é mais tratada como carga de teste. Dessa forma, considerando as cinco Cargas sobre os pontos:
+\begin{enumerate}
+	\item{\textit{Q1 = (d/2,d/2,0)}}
+    \item{\textit{Q2 = (d/2,-d/2,0)}}
+    \item{\textit{Q3 = (-d/2,d/2,0)}}
+    \item{\textit{Q4 = (-d/2,-d/2,0)}}
+    \item{\textit{Q5 = (0,0,d$\frac{\sqrt[]{2}}{2}$})}
+\end{enumerate}
+\hfill
+\par Temos que o Campo Elétrico é dado por:
+\begin{equation}
+    	\vec{E}(0,0,0) = \frac{1}{4\pi{\epsilon}_{0}} \sum_{i=0}^{4}
+        \frac
+        {{Q}_{i} ((0-{x}_{i})\hat{i}+(0-{y}_{i})\hat{j}+(0-{z}_{i})\hat{k})} 
+        {((0-{x}_{i})^2+(0-{y}_{i})^2+(0-{z}_{i})^2)^\frac{3}{2}}\ N/C
+\end{equation}
+
+\par Entretanto, este somatório é, até o índice $N=3$, igual a $\vec{0}$, pois como já visto no item a), o Campo Elétrico gerado pelas 4 Cargas ${Q}_{i}$ da base da pirâmide é igual a zero em qualquer ponto sobre o eixo $z$ ($(x,y) = (0,0)$).
+\par Em outras palavras, a única contribuição para o Campo Elétrico na base da Pirâmide será dada pela quinta carga, $Q_{5}$, residente em seu pináculo. Dessa forma, nosso campo elétrico é igual a:
+\begin{equation}
+    	\vec{E}(0,0,0) = \frac{1}{4\pi{\epsilon}_{0}} \frac
+        {{Q}_{4} ((0-0)\hat{i}+(0-0)\hat{j}+(0-d\frac{\sqrt[]{2}}{2})\hat{k})} 
+        {((0-0)^2+(0-0)^2+(0-d\frac{\sqrt[]{2}}{2})^2)^\frac{3}{2}}\ N/C
+\end{equation}
+
+\begin{equation}
+    	\vec{E}(0,0,0) = \frac{1}{4\pi{\epsilon}_{0}} \frac
+        {+Qd\frac{\sqrt[]{2}}{2}\hat{k}} 
+        {(-d\frac{\sqrt[]{2}}{2})^3}
+        =
+        \frac{1}{4\pi{\epsilon}_{0}} 			\frac
+        {-Q\hat{k}} 
+        {d^2}\ N/C
+\end{equation}
+\par Que nada mais é do que o Campo gerado por uma Carga Puntiforme.
+
+------------------------------------------------------------------------
+Item c)
+\par A força elétrica exercida sobre as cargas na base pode ser calculada por:
+\begin{equation}
+    	\vec{F}(x,y,z) = \frac{-Q}{4\pi{\epsilon}_{0}} \sum_{i=0}^{N-1}
+        \frac
+        {{Q}_{i} ((x-{x}_{i})\hat{i}+(y-{y}_{i})\hat{j}+(z-{z}_{i})\hat{k})} 
+        {((x-{x}_{i})^2+(y-{y}_{i})^2+(z-{z}_{i})^2)^\frac{3}{2}}\ N
+\end{equation}
+\par Onde N é o número de cargas que exercem força sobre a carga de teste.
+
+\par Para o caso das cargas negativas na Base, temos N=4 e então a Força elétrica será dada por:
+
+\begin{equation}
+\begin{aligned}
+    	\vec{F}(\frac{d}{2},\frac{-d}{2},0)
+        = 
+        \frac{-Q}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {Q((\frac{d}{2}-\frac{d}{2})\hat{i}+(\frac{-d}{2}-\frac{d}{2})\hat{j}+(0-0)\hat{k})} 
+        {((\frac{d}{2}-\frac{d}{2})^2+(\frac{-d}{2}-\frac{d}{2})^2+(0-0)^2)^\frac{3}{2}} +
+     	\\
+	+   \frac
+        {-Q((\frac{d}{2}-\frac{-d}{2})\hat{i}+(\frac{-d}{2}-\frac{d}{2})\hat{j}+(0-0)\hat{k})} 
+        {((\frac{d}{2}-\frac{-d}{2})^2+(\frac{-d}{2}-\frac{d}{2})^2+(0-0)^2)^\frac{3}{2}} +
+        \\
+    +   \frac
+        {+Q((\frac{d}{2}-\frac{-d}{2})\hat{i}+(\frac{-d}{2}-\frac{-d}{2})\hat{j}+(0-0)\hat{k})} 
+        {((\frac{d}{2}-\frac{-d}{2})^2+(\frac{-d}{2}-\frac{-d}{2})^2+(0-0)^2)^\frac{3}{2}} +
+        \\
+    +   \frac
+        {-Q((\frac{d}{2}-0)\hat{i}+(\frac{-d}{2}-0)\hat{j}+(0-d\frac{\sqrt[]{2}}{2})\hat{k})} 
+        {((\frac{d}{2}-0)^2+(\frac{-d}{2}-0)^2+(0-d\frac{\sqrt[]{2}}{2})^2)^\frac{3}{2}}
+    \Big)\ N
+\end{aligned}
+\end{equation}
+
+\par Podemos simplificar esta expressão, explicitando a direção na qual cada força atua. Assim, chegamos ao resultado:
+\begin{equation}
+\begin{aligned}
+    	\vec{F}(\frac{d}{2},\frac{-d}{2},0)
+        = 
+   \frac{Q^2}{4\pi{\epsilon}_{0}d^2}
+        \Big(
+        \hat{j} +
+   \frac
+        {(\hat{i}-\hat{j})} 
+        {2\sqrt{2}}
+   -\hat{i} +
+   \frac
+        {(\hat{i}-\hat{j}-\sqrt[]{2}\hat{k})} 
+        {\frac{125}{4}}
+    \Big)\ N
+\end{aligned}
+\end{equation}
+
+\par De forma similar, a força elétrica sobre a segunda carga negativa na base pode ser calculada facilmente, utilizando-se da mesma fórmula:
+
+\begin{equation}
+\begin{aligned}
+    	\vec{F}(\frac{-d}{2},\frac{d}{2},0)
+        = 
+        \frac{-Q}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {Q((\frac{-d}{2}-\frac{d}{2})\hat{i}+(\frac{d}{2}-\frac{d}{2})\hat{j}+(0-0)\hat{k})} 
+        {((\frac{-d}{2}-\frac{d}{2})^2+(\frac{d}{2}-\frac{d}{2})^2+(0-0)^2)^\frac{3}{2}} +
+     	\\
+	+   \frac
+        {-Q((\frac{-d}{2}-\frac{-d}{2})\hat{i}+(\frac{d}{2}-\frac{d}{2})\hat{j}+(0-0)\hat{k})} 
+        {((\frac{-d}{2}-\frac{-d}{2})^2+(\frac{d}{2}-\frac{d}{2})^2+(0-0)^2)^\frac{3}{2}} +
+        \\
+    +   \frac
+        {+Q((\frac{-d}{2}-\frac{-d}{2})\hat{i}+(\frac{d}{2}-\frac{-d}{2})\hat{j}+(0-0)\hat{k})} 
+        {((\frac{-d}{2}-\frac{-d}{2})^2+(\frac{d}{2}-\frac{-d}{2})^2+(0-0)^2)^\frac{3}{2}} +
+        \\
+    +   \frac
+        {-Q((\frac{-d}{2}-0)\hat{i}+(\frac{d}{2}-0)\hat{j}+(0-d\frac{\sqrt[]{2}}{2})\hat{k})} 
+        {((\frac{-d}{2}-0)^2+(\frac{d}{2}-0)^2+(0-d\frac{\sqrt[]{2}}{2})^2)^\frac{3}{2}}
+    \Big)\ N
+\end{aligned}
+\end{equation}
+
+\par O que também pode ser simplificado para:
+
+\begin{equation}
+\begin{aligned}
+    	\vec{F}(\frac{-d}{2},\frac{d}{2},0)
+        = 
+   \frac{Q^2}{4\pi{\epsilon}_{0}d^2}
+        \Big(
+        \hat{i} +
+   \frac
+        {(\hat{j}-\hat{i})} 
+        {2\sqrt{2}}
+   		-\hat{j} +
+   \frac
+        {(\hat{j}-\hat{i}-\sqrt[]{2}\hat{k})} 
+        {\frac{125}{4}}
+    \Big)\ N
+\end{aligned}
+\end{equation}
+
+
+------------------------------------------------------------------------
+Item d)
+\par Podemos utilizar o fato que o potencial elétrico é um campo escalar linear e, portanto, o potencial total para N cargas pontuais é dado pela soma de N potencias elétricos pontuais, ou seja:
+
+\begin{equation}
+    	V(x,y,z) = \frac{1}{4\pi{\epsilon}_{0}} \sum_{i=0}^{N-1}
+        \frac
+        {{Q}_{i}} 
+        {\sqrt{((x-{x}_{i})^2+(y-{y}_{i})^2+(z-{z}_{i})^2)}}\ Volts
+\end{equation}
+
+\par Dessa maneira, o campo elétrico é dado por:
+
+\begin{equation}
+\begin{aligned}
+    	V(x,y,z) = \frac{Q}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {1} 
+        {\sqrt{((x-d/2)^2+(y-d/2)^2+(z)^2)}}
+        \\
+        - \frac
+        {1} 
+        {\sqrt{((x+d/2)^2+(y-d/2)^2+(z)^2)}}
+        \\
+        + \frac
+        {1} 
+        {\sqrt{((x+d/2)^2+(y+d/2)^2+(z)^2)}}
+        \\
+        - \frac
+        {1} 
+        {\sqrt{((x-d/2)^2+(y+d/2)^2+(z)^2)}}
+        \\
+        - \frac
+        {1} 
+        {\sqrt{((x)^2+(y)^2+(z-d\frac{\sqrt[]{2}}{2})^2)}}
+        \Big)\ Volts
+\end{aligned}
+\end{equation}
+
+------------------------------------------------------------------------
+Item e)
+\par Caso a quinta carga seja substituída, basta alterarmos a parcela na qual ela afeta o campo elétrico, não sendo necessário alterar as demais contribuições. Isso nos leva a:
+
+\begin{equation}
+\begin{aligned}
+    	V(x,y,z) = \frac{Q}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {1} 
+        {\sqrt{((x-d/2)^2+(y-d/2)^2+(z)^2)}}
+        \\
+        - \frac
+        {1} 
+        {\sqrt{((x+d/2)^2+(y-d/2)^2+(z)^2)}}
+        \\
+        + \frac
+        {1} 
+        {\sqrt{((x+d/2)^2+(y+d/2)^2+(z)^2)}}
+        \\
+        - \frac
+        {1} 
+        {\sqrt{((x-d/2)^2+(y+d/2)^2+(z)^2)}}
+        \\
+        + \frac
+        {1/5} 
+        {\sqrt{((x)^2+(y)^2+(z-d\frac{\sqrt[]{2}}{2})^2)}}
+        \Big)\ Volts
+\end{aligned}
+\end{equation}
+
+%%%%%%%%%%%%%%%%QUESTAO3%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Questão 3}
+    \begin{enumerate}
+    	\item{\textit{Suponha uma carga pontual $Q$, está localizada na origem. Assim sendo, mostre que div$D=0$ para todos os pontos exceto para a origem. Substitua a carga pontual $Q$ por uma densidade volumétrica de carga uniforme $\rho_v$ (distribuída entre $0<r<r_1$), relacione $\rho_v$ com $Q$ e $r_1$ de modo que a carga pontual seja a mesma e determine div$D$ para todos os pontos.}}
+        \item{\textit{Quatro cargas pontuais de $0.8\eta C$ são posicionadas no espaço livre nos vértices de um quadrado de $4$cm de lado. Determine a energia potencial total armazenada, e se uma quinta carga, também de $0.8\eta C$ fosse posicionada no centro do quadrado, qual seria a energia potencial total armazenada nessa nova configuração?}}
+        \item{\textit{Suponha um filamento quadrado perfeitamente condutor contendo um pequeno resistor de $500\Omega$ com $0,5m$ de lado posicionado sobre o plano $xy$ (com $z=0$). Determine a corrente no filamento $(i(t))$ se o campo magnético $(B)$ for $B_1=0,3cos(120\pi t-30^{\circ})^{z} T$, $B_2=0,4cos(\pi(ct-y))^{z} T$, onde $c=3*10^{8}m/s$ }}
+    \end{enumerate}
+    \hfill
+    
+------------------------------------------------------------------------
+Item a)
+\par Seguindo o enunciado da questão, podemos substituir a carga puntiforme Q na origem por uma densidade volumétrica de cargas $\rho_{v}$, distribuída de tal forma que $0 < \rho_{v}\leq r_{1}$.
+\par Esta densidade volumétrica de cargas está portanto contida dentro de uma esfera de raio $r_{1}$, cujo volume é dado por:
+\begin{equation}
+	V = \frac{4}{3}\pi r_{1}^3  \longmapsto V \propto r_{1}^3
+\end{equation}
+
+\par Pela definição de densidade volumétrica de cargas, temos que:
+
+\begin{equation}
+	\rho_{v} = \lim_{V \to 0} \frac{\Delta Q}{\Delta V} \longmapsto = \lim_{r_{1} \to 0} \frac{\Delta Q}{\Delta r_{1}}
+\end{equation}
+
+ \par Ainda, pelas Equações de Maxwell, temos a relação entre a Densidade volumétrica de cargas e a Densidade de Fluxo Elétrico, dado por:
+ 
+ \begin{equation}
+ 	\vec{\nabla}\cdot\vec{D} = \rho_{v}
+ \end{equation}
+ 
+ \par Portanto:
+ \begin{equation}
+ 	\vec{\nabla}\cdot\vec{D} = \lim_{r_{1} \to 0} \frac{\Delta Q}{\Delta r_{1}}
+ \end{equation}
+ 
+\par Por essa equação podemos ver que para que o Divergente da densidade de Fluxo Elétrico seja diferente de zero, a densidade de cargas $\rho_{v}$ deve ser diferente de zero. Como a mesma foi definida em termos do raio $r_{1}$ da esfera centrada na origem, temos que o vetor posição $\vec{r}$ deve estar entre 0 e $r_{1}$ para que $\vec{\nabla}\cdot\vec{D} = \rho_{v}$. Entretanto, como tomamos o $\lim_{r_{1} \to 0}$ no volume da esfera, pelo teorema do confronto, temos que, necessariamente:
+ 
+  \begin{equation}
+ 	\vec{\nabla}\cdot\vec{D} \ne 0
+    \Rightarrow
+    \vec{\nabla}\cdot\vec{D} = \rho_{v}
+    \Leftrightarrow
+    \vec{r} = \vec{0}
+ \end{equation}
+ \par e finalmente, utilizando-se de lógica matemática
+  \begin{equation}
+ 	\vec{r} \ne \vec{0}
+    \Rightarrow
+    \vec{\nabla}\cdot\vec{D} = 0
+ \end{equation}
+ 
+------------------------------------------------------------------------
+Item b)
+\par A energia potencial em um sistema se relaciona com o potencial elétrico pela seguinte relação:
+\begin{equation}
+\Delta Vq = \Delta U
+\end{equation}
+\par Assim podemos tomar como referencial nulo um ponto no infinito e afirmar que
+\begin{equation}
+V(x,y,z)q = U(x,y,z)
+\end{equation}
+
+\par Posicionando o quadrado cuidadosamente no centro do plano $xy$ no espaço livre, os pontos ocupados pelas cargas serão:
+
+\begin{enumerate}
+	\item{\textit{Q1 = (2cm,2cm,0)}}
+    \item{\textit{Q2 = (2cm,-2cm,0)}}
+    \item{\textit{Q3 = (-2cm,2cm,0)}}
+    \item{\textit{Q4 = (-2cm,-2cm,0)}}
+\end{enumerate}
+\hfill
+
+\par Podemos então utilizar o mesmo procedimento adotado na Questão 2d), e utilizar a linearidade do potencial elétrico para calcular, utilizando a Fórmula (22):
+
+\begin{equation}
+\begin{aligned}
+    	V(x,y,z) = \frac{0.8}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {1} 
+        {\sqrt{((x-2)^2+(y-2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x+2)^2+(y-2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x-2)^2+(y+2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x+2)^2+(y+2)^2+z^2)}}
+        \Big)\ Volts
+\end{aligned}
+\end{equation}
+\par O que nos leva a:
+\begin{equation}
+\begin{aligned}
+    	U(x,y,z) = q\frac{0.8}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {1} 
+        {\sqrt{((x-2)^2+(y-2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x+2)^2+(y-2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x-2)^2+(y+2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x+2)^2+(y+2)^2+z^2)}}
+        \Big)\ J
+\end{aligned}
+\end{equation}
+
+\par Caso a quinta carga seja adicionada, ela será posicionada no ponto $P5 = (0,0,0)$, a energia potencial total passará a ser: 
+
+\begin{equation}
+\begin{aligned}
+    	U(x,y,z) = q\frac{0.8}{4\pi{\epsilon}_{0}}
+        \Big(
+        \frac
+        {1} 
+        {\sqrt{((x-2)^2+(y-2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x+2)^2+(y-2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x-2)^2+(y+2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{((x+2)^2+(y+2)^2+z^2)}}
+        \\
+       +\frac
+        {1} 
+        {\sqrt{(x^2+y^2+z^2)}}
+        \Big)\ J
+\end{aligned}
+\end{equation}
+
+------------------------------------------------------------------------
+Item c)
+
+\par Podemos utilizar as Equações de Maxwell para campos variáveis no tempo e descobrir a tensão induzida sobre o filamento. Mais especificadamente, utilizando a Lei de Lenz:
+\begin{equation}
+	E_{i} = -\frac{\partial{\Phi}}{\partial{t}}
+\end{equation}
+\par Onde $E_{i}$ é a Tensão induzida sobre o fio. Dessa forma:
+\begin{equation}
+	\Phi_{1} = \iint_{R} \vec{B_{1}}\cdot d\vec{A} = \iint_{R}B_{1}dA = B_{1}\iint_{R}dA = 0,5^2B_{1}\ Wb
+\end{equation}
+\begin{equation}
+	E_{1} = -\frac{\partial{\Phi_{1}}}{\partial{t}} = 9\pi sen(120\pi t-\measuredangle30)\ N/C
+\end{equation}
+
+\par De forma parecida, para o Campo $B_{2}(t)$ temos:
+
+\begin{equation}
+	\Phi_{2} = \iint_{R=[0,0.5]\times[0,0.5]} \vec{B_{2}}\cdot d\vec{A} = \iint_{R}B_{2}dA = \int_0^{0.5} \int_0^{0.5} B_{2} dxdy
+\end{equation}
+
+\begin{equation}
+	\Phi_{2} = 0.2 \int_0^{0.5} cos(\pi(ct-y)) dy = \frac{0.2}{\pi} (cos\Big(\frac{2\pi ct-\pi}{2}\Big) - cos(\pi ct))\ Wb
+\end{equation}
+
+\par O que nos da o Campo $E_{2}$
+\begin{equation}
+	E_{2} = -c(sen\Big(\frac{2\pi ct-\pi}{2}\Big)-sen(\pi ct))\ N/C
+\end{equation}
+
+\par Enfim, temos que as correntes elétricas induzidas são:
+
+\begin{equation}
+	i_{1}(t) = \frac{E_{1}(t)}{500\Omega} = \frac{9\pi}{500}sen(120\pi t-\measuredangle30)\ A
+\end{equation}
+\begin{equation}
+i_{2}(t) = \frac{E_{2}}{500\Omega} = -\frac{3*10^8}{500}(sen\Big(\frac{2\pi 3*10^8t-\pi}{2}\Big)-sen(\pi 3*10^8t))\ A
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%QUESTAO4%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Questão 4}
+    \begin{enumerate}
+    	\item{\textit{Prove o teorema do divergente, utilizando a lei de Gauss}}
+        \item{\textit{Disserte sobre o experimento das duas esferas e suas aplicações em eletromagnetismo.}}
+        \end{enumerate}
+\hfill
+
+------------------------------------------------------------------------
+Item a)
+\par Seja $\partial S$ uma superfície fechada e $\vec{D}(x,y,z)$ a densidade de fluxo elétrico definida por $\vec{D}(\vec{r})=\epsilon_{0}\vec{E}(\vec{r})$, a Lei de Gauss nos diz que a integral de superfície sobre S é igual a carga interna total, ou seja: 
+
+\begin{equation}
+\oiint_{\partial S} \vec{D}\cdot\vec{dA} = Q_{int}
+\end{equation}
+
+\par Podemos então, utilizando a definição de densidade volumétrica de cargas $\rho_v = \lim_{v \to 0}\frac{\Delta Q}{\Delta v}$, escrever que
+
+\begin{equation}
+	Q = \iiint_v \rho_v dv
+\end{equation}
+
+\par E assim igualamos as integrais sobre o volume $v=S$ para encontrar
+
+\begin{equation}
+	\oiint_{\partial S} \vec{D}\cdot\vec{dA} = \iiint_S \rho_v dv
+\end{equation}
+
+\par Por fim, utilizamos a Lei de Gauss em sua forma diferencial para relacionarmos a Densidade de Fluxo Elétrico e a Densidade Volumétrica de Cargas, e enfim, chegamos à forma final do Teorema do Divergente:
+
+\begin{equation}
+	\rho_{v} = \vec{\nabla}\cdot\vec{D}
+\end{equation}
+\begin{equation}
+	\oiint_{\partial S} \vec{D}\cdot\vec{dA} = \iiint_S \vec{\nabla}\cdot\vec{D} dv 
+\rightarrow
+\oiint_{\partial S} \vec{F}\cdot\vec{dA} = \iiint_S \vec{\nabla}\cdot\vec{F} dv
+\end{equation}
+
+------------------------------------------------------------------------
+Item b)
+\par O experimento conhecido por "Experimento de duas esferas" foi realizado por Michael Faraday ao redor de 1837, e consiste basicamente da observação da carga armazenada em esferas concêntricas.
+
+\par Uma esfera metálica condutora, e uma casca esférica também condutora, foram postas \textit{"uma dentro da outra"}, separadas por um material \textit{dielétrico}. O experimento segue como descrito:
+
+\begin{enumerate}
+	\item{\textit{Com o equipamento desmontado, a esfera metálica interna é dada uma carga Q conhecida }}
+    \item{\textit{O equipamento é então montado, fechando-se a casca esférica sobre a esfera metálica, de forma que ambas fiquem separados pelo material dielétrico (não condutor)}}
+    \item{\textit{A casca esférica exterior é brevemente descarregada, para assegurar-se que possui carga nula}}
+    \item{\textit{O equipamento é então desmontado cuidadosamente, utilizando ferramentas de material isolante com objetivo de não se alterar as cargas envolvidas no experimento}}
+\end{enumerate}
+
+\par Faraday observou então que a Carga induzida sobre a esfera exterior era exatamente igual \textit{em módulo} a carga conhecida interna, e após repetir o experimento com outros materiais dielétricos, concluiu que mantinha uma relação de independência com o  material dielétrico utilizado. Dessa forma, concluiu que devia existir um fluxo elétrico que unisse ambas as esferas.
+
+\par Esse experimento é fundamental para a história do eletromagnetismo, pois é a primeira comprovação experimental da existência de um fluxo elétrico, e é o primeiro passo para a definição da Lei de Gauss como definida nas Equações de Maxwell.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%CONCLUSÃO%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusão}
+\par Neste trabalho foi resolvida toda a primeira prova de Teoria Eletromagnética II, passo a passo, de maneira clara e concisa. Esse trabalho teve então por produto final a melhor compreensão do aluno quanto à prova aplicada, o estudo da linguagem \LaTeX, e espera-se que sirva de material de estudo para os próximos alunos que cursarão a disciplina nos próximos semestres. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%NOTA: Não esquecer Unidades%%%
+%%%%%%%%%%%%%CONSERTAR ALTURA DO TRIANGULO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+Hayt, William Hart, 1920–
+Engineering electromagnetics / William H. Hayt, Jr., John A. Buck. — 8th ed.
+p. cm.
+Includes bibliographical references and index.
+ISBN 978–0–07–338066–7 (alk. paper)
+1. Electromagnetic theory. I. Buck, John A. II. Title.
+QC670.H39 2010
+530.14
+1—dc22 2010048332
+
+\bibitem{IEEEhowto:kopka}
+Nathanael Jr, "Notas de Aula". Rio de Janeiro: 2018
+
+
+
+\end{thebibliography}
+\end{document}
